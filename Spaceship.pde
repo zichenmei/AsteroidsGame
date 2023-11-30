@@ -3,12 +3,12 @@ class Spaceship extends Floater {
     corners=3;
     xCorners=new int[corners];
     yCorners=new int[corners];
-    xCorners[0]=8;
+    xCorners[0]=20;
     yCorners[0]=0;
     xCorners[1]=-25;
-    yCorners[1]=-10;
+    yCorners[1]=-20;
     xCorners[2]=-25;
-    yCorners[2]=10;
+    yCorners[2]=20;
     myCenterX=(double)250;
     myCenterY=(double)250; 
     myColor=255;
