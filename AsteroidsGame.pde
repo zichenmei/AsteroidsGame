@@ -1,6 +1,7 @@
 Spaceship ship=new Spaceship();
 Star[] stars=new Star[200];
-ArrayList<Bullet>bullet=new ArrayList<Bullet>();
+Bullet one=new Bullet(ship);
+ArrayList<Bullet>bullets=new ArrayList<Bullet>();
 ArrayList<Asteroid> rocks =new ArrayList<Asteroid>();
 public void setup() {
   size(500,500);
@@ -25,15 +26,15 @@ public void draw() {
   }
   ship.show();
   ship.move();
-  for(int i=0;i<bullet.size();i++){
-    bullet.get(i).show();
-    bullet.get(i).move();
+  for(int i=0;i<bullets.size();i++){
+    bullets.get(i).show();
+    bullets.get(i).move();
   }
-  for(int i=0;i<bullet.size();i++){
+  for(int i=0;i<bullets.size();i++){
     for(int j=0;j<rocks.size();j++){
-      if(dist((float)bullet.get(i).myCenterX,(float)bullet.get(i).myCenterY,(float)rocks.get(j).getX(),(float)rocks.get(j).getY())<=10){
+      if(dist((float)bullets.get(i).getbX(),(float)bullets.get(i).getbY(),(float)rocks.get(j).getX(),(float)rocks.get(j).getY())<=10){
         rocks.remove(j);
-        bullet.remove(i);
+        bullets.remove(i);
         i--;
         j--;
         break;
@@ -58,6 +59,6 @@ public void keyPressed(){
     ship.setDirection();
   }
   if(key=='s'){
-    bullet.add(new Bullet(ship));
+    bullets.add(new Bullet(ship));
   }
 }
